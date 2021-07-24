@@ -1,13 +1,15 @@
-const createError = require('http-errors');
-const express = require('express');
 const path = require('path');
+const express = require('express');
+const createError = require('http-errors');
+const loggerService = require('./services/loggerService');
 
 const app = express();
 
-
+app.use(loggerService);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.get('/', (req, res) => res.status(200).json({ success: 'Rss feed' }));
 
