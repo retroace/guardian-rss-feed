@@ -3,7 +3,7 @@ const Cache = require('../services/cacheService');
 
 module.exports = async (req, res, next) => {
   const { subject } = req.params;
-  const key = `${subject}_${req.query || 1}`;
+  const key = `${subject}_${req.query.page || 1}`;
   const hasCache = await Cache.has(key);
 
   if (!hasCache) {
