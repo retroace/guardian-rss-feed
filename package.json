@@ -4,7 +4,10 @@
   "description": "Example repo for rss guardian feed",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --fix src",
+    "dev": "nodemon index.js",
+    "prod": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -13,8 +16,19 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "http-errors": "^1.8.0",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.1",
+    "redis": "^3.1.2"
+  },
   "bugs": {
     "url": "https://github.com/retroace/guardian-rss-feed/issues"
   },
-  "homepage": "https://github.com/retroace/guardian-rss-feed#readme"
+  "homepage": "https://github.com/retroace/guardian-rss-feed#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
 }
