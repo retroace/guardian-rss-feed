@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# Ansi color code variables
+blue="\e[0;94m"
+green="\e[0;92m"
+white="\e[0;97m"
+bold="\e[1m"
+uline="\e[4m"
+reset="\e[0m"
+
+if [[ -z "$1" ]]; then
+  echo -e "  Available commands: Please check the docker.sh file for more info \n"
+  echo -e "  Application Command List  "
+  echo -e "   up                          Start project"
+  echo -e "   down                        Stop and Remove project"
+  echo -e "  Ssh/Command List  "
+  echo -e "   ssh                          Ssh inside project"
+  echo -e "   lsCmd                        List all artisan command"
+
+  echo -e "\n"
+  echo -e "  Commands  "
+  echo -e "   npm                          Npm commands after npm"
+  echo -e "   test                         Run tests"
+  echo -e "\n \n"
+  exit
+fi
+
+up() {
+  docker-compose up -d
+}
+
+down() {
+  docker-compose stop
+}
+
+lsCmd() {
+  docker exec -it kee_app npm
+}
+
+ssh() {
+  echo -e "Current Command 😎 👉  docker exec -it guardian_app /bin/sh"
+  docker exec -it guardian_app /bin/sh
+}
+
+sshRedis() {
+  echo -e "Current Command 😎 👉  docker exec -it guardian_app /bin/sh"
+  docker exec -it guardian_cache /bin/sh
+}
+
+npm() {
+  echo -e "Current Command 😎 👉  npm $1 $2 $3 \n"
+  docker exec -it guardian_app npm $1 $2 $3
+  echo -e "\n"
+}
+
+test() {
+  docker exec -it guardian_app npm run test
+}
+
+
+$1 "$2" "$3" "$4" "$5"
