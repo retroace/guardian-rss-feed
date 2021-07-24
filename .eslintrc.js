@@ -12,9 +12,10 @@ module.exports = {
     SharedArrayBuffer: 'readonly',
   },
   parserOptions: {
-    ecmaVersion: 15,
+    ecmaVersion: 11,
     sourceType: 'module',
   },
   rules: {
+    "no-new-object": 0
   },
 };
