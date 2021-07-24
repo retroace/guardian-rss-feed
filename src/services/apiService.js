@@ -8,7 +8,7 @@ const search = async (data) => {
   const ApiKey = process.env.GUARDIAN_API_KEY;
   const params = generateParams(data);
 
-  const resData = await fetch(`https://content.guardianapis.com/search?${params}&api-key=${ApiKey}`).then((res) => res.json());
+  const resData = await fetch(`https://content.guardianapis.com/search?${params}&api-key=${ApiKey}&show-fields=all`).then((res) => res.json());
   return resData;
 };
 

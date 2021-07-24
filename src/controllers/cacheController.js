@@ -1,4 +1,4 @@
-const Cache = require('../services/cacheService');
+const Cache = require('../drivers/redisDriver');
 
 
 /**

@@ -12,9 +12,6 @@ module.exports = async (req, res, next) => {
 
   let data = await Cache.get(key);
   data = JSON.parse(data);
-  return res.status(200).set('Content-Type', 'text/xml').send(convertToXML(data, {
-    title: `${subject.toUpperCase()} | The Guardian`,
-    description: subject,
-    link: '#',
-  }));
+  const xml = convertToXML({item: data.item}, data.header);
+  return res.status(200).set('Content-Type', 'text/xml').send(xml);
 };
