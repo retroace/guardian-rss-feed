@@ -4,7 +4,7 @@
   "description": "Example repo for rss guardian feed",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --runInBand --detectOpenHandles --forceExit --coverage",
     "lint": "eslint --fix src",
     "dev": "nodemon index.js",
     "prod": "node index.js"
@@ -29,6 +29,8 @@
   },
   "homepage": "https://github.com/retroace/guardian-rss-feed#readme",
   "devDependencies": {
-    "nodemon": "^2.0.12"
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.12",
+    "supertest": "^6.1.4"
   }
 }
