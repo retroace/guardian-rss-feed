@@ -1,5 +1,5 @@
 # Guardian Rss Feed
-This is sample project for exposing the api provided by guardian to rss.
+This is sample project for exposing the api provided by guardian to rss. To use rss feed for an article type use the route **/article/{subject}** and to clear the cache use **/clear-cache**
 
 ## File Structure
 
