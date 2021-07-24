@@ -3,6 +3,7 @@ const CacheMiddleware = require('../middlewares/cacheMiddleware');
 const router = express.Router();
 
 const articleController = require('../controllers/articleController');
+const cacheController = require('../controllers/cacheController');
 const routeValidator = require('../middlewares/routeValidator');
 
 

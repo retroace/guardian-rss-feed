@@ -1,4 +1,4 @@
-const RedisClient = require('./../src/cacheDriver/RedisDriver');
+const RedisClient = require('../src/drivers/redisDriver');
 const supertest = require('supertest');
 const app = require('./../src/server');
 

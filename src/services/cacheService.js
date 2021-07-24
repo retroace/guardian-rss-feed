@@ -1,5 +1,5 @@
 let cache = null;
-const redisCache = require('../cacheDriver/RedisDriver');
+const redisCache = require('../drivers/redisDriver');
 
 // Extend other cache from here
 switch (process.env.CACHE_DRIVER) {

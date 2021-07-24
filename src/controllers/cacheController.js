@@ -14,5 +14,5 @@ const clearAll = async (req, res) => {
 };
 
 module.exports = {
-  index,
+  clearAll,
 };
