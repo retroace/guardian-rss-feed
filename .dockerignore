@@ -1,0 +1,6 @@
+.env.example
+.editorconfig
+.git
+.gitignore
+.prettierrc
+node_modules

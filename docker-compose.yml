@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  redis:
+    image: redis:6.2.5
+    container_name: guardian_cache
+    expose:
+      - 6379
+    networks:
+      - guardian_network
+
+  app:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: guardian_app
+    restart: unless-stopped
+    environment:
+      - REDIS_URL=redis://cache
+      - PORT=${PORT}
+    ports:
+      - 3000:3000
+    volumes:
+      - ./src:/app/src
+      - ./node_modules:/app/node_modules
+      - ./.env:/app/.env
+    networks:
+      - guardian_network
+
+networks:
+  guardian_network:
+    driver: bridge
