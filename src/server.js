@@ -3,6 +3,9 @@ const express = require('express');
 const createError = require('http-errors');
 const loggerService = require('./services/loggerService');
 
+// Routes
+const indexRouter = require('./routes/api');
+
 const app = express();
 
 app.use(loggerService);
@@ -12,6 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', (req, res) => res.status(200).json({ success: 'Rss feed' }));
+app.use('/api', indexRouter);
 
 
 // catch 404 and forward to error handler
