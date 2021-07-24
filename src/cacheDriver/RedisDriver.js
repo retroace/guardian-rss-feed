@@ -1,12 +1,17 @@
 const redis = require("redis");
 const client = redis.createClient({
   port: 6379,
-  host: 'cache'
+  host: 'guardian_cache'
 });
 
 client.on("error", function(error) {
   console.error(error);
 });
+
+
+const close = () => {
+  client.quit();
+};
 
 const cache = {
   has: async (key) => {
@@ -43,7 +48,9 @@ const cache = {
 
   put: (key,value,time) => {
     client.setex(key,time,value);
-  }
+  },
+  close: close,
+  client: client
 };
 
 module.exports = cache;

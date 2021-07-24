@@ -7,6 +7,7 @@
     "test": "jest --runInBand --detectOpenHandles --forceExit --coverage",
     "lint": "eslint --fix src",
     "dev": "nodemon index.js",
+    "start": "nodemon index.js",
     "prod": "node index.js"
   },
   "repository": {

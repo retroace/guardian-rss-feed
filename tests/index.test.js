@@ -1,4 +1,5 @@
 
+const RedisClient = require('./../src/cacheDriver/RedisDriver');
 const supertest = require('supertest');
 const app = require('./../src/server');
 
@@ -14,6 +15,10 @@ describe('When application has started', () => {
   it('non existent route returns 404', async () => {
     const response = await supertest(app).get('/not-found');
     expect(response.status).toBe(404);
+  });
+
+  afterAll(() => {
+    RedisClient.close();
   });
 
 });
