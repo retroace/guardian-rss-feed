@@ -8,14 +8,14 @@ const date = (new Date()).toISOString();
 // Generates file name based on dates
 const filename = `${date.substr(0, 10)}.log`;
 
-const logPath = path.join(__dirname, `/../logs/${filename}`);
+const logPath = path.join(__dirname, `/../../logs/${filename}`);
 const accessLogStream = fs.createWriteStream(logPath, { flags: 'a' });
 
 
 function logToCustomFormat(message, level = "LOG")
 {
   let logTimestamp = +new Date();
-  const customLogPath = path.join(__dirname, `/../logs/user_${filename}`);
+  const customLogPath = path.join(__dirname, `/../../logs/user_${filename}`);
   const customAccessLogStream = fs.createWriteStream(customLogPath, { flags: 'a' });
 
   if(typeof message == 'object') {
